@@ -1,4 +1,15 @@
 const arr = [];
+arr[0] = [
+  "time",
+  "x",
+  "y",
+  "left-height",
+  "left-x",
+  "left-y",
+  "right-height",
+  "right-x",
+  "right-y",
+];
 
 window.onload = async function () {
   //start the webgazer tracker
@@ -9,9 +20,9 @@ window.onload = async function () {
     .setGazeListener(function (data, clock, passarg) {
       if (data != null) {
         if (passarg == null) {
-          console.log(
-            data.eyeFeatures.left.imagey
-          ); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
+          // console.log(
+          //   data.eyeFeatures.left.imagey
+          // ); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
           // console.log(
           //   clock
           // ); /* elapsed time in milliseconds since webgazer.begin() was called */
