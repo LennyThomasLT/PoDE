@@ -21,10 +21,10 @@ window.onload = async function () {
       if (data != null) {
         if (passarg == null) {
           console.log(
-            data.eyeFeatures.left.imagey
+            data.eyeFeatures.right.height
           ); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
           console.log(
-            clock
+            data.eyeFeatures.left.height
           ); /* elapsed time in milliseconds since webgazer.begin() was called */
         }
         arr.push([
