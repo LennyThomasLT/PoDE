@@ -20,12 +20,12 @@ window.onload = async function () {
     .setGazeListener(function (data, clock, passarg) {
       if (data != null) {
         if (passarg == null) {
-          // console.log(
-          //   data.eyeFeatures.left.imagey
-          // ); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
-          // console.log(
-          //   clock
-          // ); /* elapsed time in milliseconds since webgazer.begin() was called */
+          console.log(
+            data.eyeFeatures.left.imagey
+          ); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
+          console.log(
+            clock
+          ); /* elapsed time in milliseconds since webgazer.begin() was called */
         }
         arr.push([
           clock,
