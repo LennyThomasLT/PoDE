@@ -9,21 +9,15 @@ window.onload = async function () {
     .setGazeListener(function (data, clock, passarg) {
       if (data != null) {
         if (passarg == null) {
-          // console.log(
-          //   data
-          // ); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
+          console.log(
+            data.eyeFeatures.left.height
+          ); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
           // console.log(
           //   clock
           // ); /* elapsed time in milliseconds since webgazer.begin() was called */
         }
         arr.push([data.x, data.y, clock]);
       }
-      // arr.push(data);
-      //   // datat.push(data);
-      //   // /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
-      //   // console.log(clock);
-      //   // timestamp.push(clock);
-      //   /* elapsed time in milliseconds since webgazer.begin() was called */
     })
     .saveDataAcrossSessions(true)
     .begin();
