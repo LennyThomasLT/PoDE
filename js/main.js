@@ -1,4 +1,15 @@
 const arr = [];
+arr[0] = [
+  "time",
+  "x",
+  "y",
+  "left-height",
+  "left-x",
+  "left-y",
+  "right-height",
+  "right-x",
+  "right-y",
+];
 
 window.onload = async function () {
   //start the webgazer tracker
@@ -10,20 +21,24 @@ window.onload = async function () {
       if (data != null) {
         if (passarg == null) {
           // console.log(
-          //   data
+          //   data.eyeFeatures.left.imagey
           // ); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
           // console.log(
           //   clock
           // ); /* elapsed time in milliseconds since webgazer.begin() was called */
         }
-        arr.push([data.x, data.y, clock]);
+        arr.push([
+          clock,
+          data.x,
+          data.y,
+          data.eyeFeatures.left.height,
+          data.eyeFeatures.left.imagex,
+          data.eyeFeatures.left.imagey,
+          data.eyeFeatures.right.height,
+          data.eyeFeatures.right.imagex,
+          data.eyeFeatures.right.imagey,
+        ]);
       }
-      // arr.push(data);
-      //   // datat.push(data);
-      //   // /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
-      //   // console.log(clock);
-      //   // timestamp.push(clock);
-      //   /* elapsed time in milliseconds since webgazer.begin() was called */
     })
     .saveDataAcrossSessions(true)
     .begin();
