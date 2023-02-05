@@ -69,9 +69,9 @@ window.saveDataAcrossSessions = true;
 //   "data:text/csv;charset=utf-8," + data.map((e) => e.join(",")).join("\n");
 // var encodedUri = encodeURI(csvContent);
 
-// window.onbeforeunload = function () {
-//   webgazer.end();
-// };
+window.onbeforeunload = function () {
+  webgazer.end();
+};
 
 //  * Restart the calibration process by clearing the local storage and reseting the calibration point
 //  */
