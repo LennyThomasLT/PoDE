@@ -3,7 +3,6 @@ var PointCalibrate = 0;
 var CalibrationPoints = {};
 var i = 0;
 var intervalId;
-const header = ["x", "y", "time"];
 
 /**
  * Clear the canvas and the calibration button.
@@ -93,6 +92,7 @@ $(document).ready(function () {
           store_points_variable(); // start storing the prediction points
 
           sleep(5000).then(() => {
+            webgazer.pause();
             stop_storing_points_variable(); // stop storing the prediction points
             var past50 = webgazer.getStoredPoints(); // retrieve the stored points
             var precision_measurement = calculatePrecision(past50);
