@@ -65,8 +65,8 @@ li {
 
 /* Calibration button styling */
 .Calibration {
-  width: 25px;  
-  height: 25px;
+  width: 20px;
+  height: 20px;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
