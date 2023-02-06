@@ -4,9 +4,6 @@ var CalibrationPoints = {};
 var i = 0;
 var intervalId;
 
-/**
- * Clear the canvas and the calibration button.
- */
 function ClearCanvas() {
   $(".Calibration").hide();
   var canvas = document.getElementById("plotting_canvas");
@@ -35,7 +32,6 @@ function PopUpInstruction() {
 function helpModalShow() {
   $("#helpModal").modal("show");
 }
-
 /**
  * Load this function when the index page starts.
  * This function listens for button clicks on the html page
