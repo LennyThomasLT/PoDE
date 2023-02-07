@@ -27,22 +27,12 @@
 
   <script src="./webgazer.js"></script>
   <script>
-    window.onload = function () {
-      var webgazerData = JSON.parse(
-        window.localStorage.getItem("webgazerData")
-      );
-      if (webgazerData) {
-        webgazer.setData(webgazerData);
-        console.log("YESS");
-      } else {
-        console.log("NOO");
-      }
-    };
+    var retrievedData = JSON.parse(localStorage.getItem("gazeData"));
+    console.log(retrievedData);
   </script>
 </head>
 
 <body lang="en-US" link="#0000ff" dir="LTR">
-
   <script src="./node_modules/jquery/dist/jquery.min.js"></script>
   <script src="./node_modules/sweetalert/dist/sweetalert.min.js"></script>
 

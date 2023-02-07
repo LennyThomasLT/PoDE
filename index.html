@@ -18,11 +18,19 @@ Instructions on use can be found in the README repository.
         <!-- <script src="./tensorflow.js"></script> -->
         <script src="./webgazer.js"></script>
         <script>
+          var gazeData;
+          webgazer.begin();
+          webgazer.setGazeListener(function(data, clock) {
+            gazeData = data;
+            
+          });
           window.onbeforeunload = function() {
-            window.localStorage.setItem('webgazerData', JSON.stringify(webgazer.getData()));
-            console.log("SIUUU");
-          }
+            localStorage.setItem('gazeData', JSON.stringify(gazeData));
+          };
+          var retrievedData = JSON.parse(localStorage.getItem("gazeData"));
+           console.log("Calibrate", retrievedData);
         </script>
+        
     </head>
     <body LANG="en-US" LINK="#0000ff" DIR="LTR" >
       <canvas id="plotting_canvas" width="500" height="500" style="cursor:crosshair;"></canvas>

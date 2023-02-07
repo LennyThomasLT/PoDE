@@ -27,17 +27,8 @@
 
   <script src="./webgazer.js"></script>
   <script>
-    window.onload = function () {
-      var webgazerData = JSON.parse(
-        window.localStorage.getItem("webgazerData")
-      );
-      if (webgazerData) {
-        webgazer.setData(webgazerData);
-        console.log("YESS");
-      } else {
-        console.log("NOO");
-      }
-    };
+    var retrievedData = JSON.parse(localStorage.getItem("gazeData"));
+    console.log("Calibrate", retrievedData);
   </script>
 </head>
 
