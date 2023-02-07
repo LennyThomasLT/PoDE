@@ -14,6 +14,17 @@ arr[0] = [
 window.onload = async function () {
   //start the webgazer tracker
 
+  var gazeData;
+  webgazer.begin();
+  webgazer.setGazeListener(function (data, clock) {
+    gazeData = data;
+  });
+  window.onbeforeunload = function () {
+    localStorage.setItem("gazeData", JSON.stringify(gazeData));
+  };
+  var retrievedData = JSON.parse(localStorage.getItem("gazeData"));
+  console.log("Calibrate", retrievedData);
+
   await webgazer
     .setRegression("ridge") /* currently must set regression and tracker */
     //.setTracker('clmtrackr')

@@ -17,19 +17,7 @@ Instructions on use can be found in the README repository.
         <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
         <!-- <script src="./tensorflow.js"></script> -->
         <script src="./webgazer.js"></script>
-        <script>
-          var gazeData;
-          webgazer.begin();
-          webgazer.setGazeListener(function(data, clock) {
-            gazeData = data;
-            
-          });
-          window.onbeforeunload = function() {
-            localStorage.setItem('gazeData', JSON.stringify(gazeData));
-          };
-          var retrievedData = JSON.parse(localStorage.getItem("gazeData"));
-           console.log("Calibrate", retrievedData);
-        </script>
+        
         
     </head>
     <body LANG="en-US" LINK="#0000ff" DIR="LTR" >
