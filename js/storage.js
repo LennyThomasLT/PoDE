@@ -11,7 +11,17 @@ arr[0] = [
   "right-y",
 ];
 
+// window.onbeforeunload = function (e) {
+//   localStorage.clear();
+// };
+
 window.onload = async function () {
+  localStorage.clear();
+  if (localStorage.clear) {
+    console.log("yeah");
+  } else {
+    console.log("ye");
+  }
   //start the webgazer tracker
 
   // var gazeData;
