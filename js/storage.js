@@ -31,8 +31,8 @@ window.onload = async function () {
     .setGazeListener(function (data, clock, passarg) {
       if (data != null) {
         if (passarg == null) {
-          // var gazeData = data;
-          // localStorage.setItem("gazeData", JSON.stringify(gazeData));
+          localStorage.setItem("gazeData", JSON.stringify(data));
+          localStorage.setItem("time", JSON.stringify(clock));
           // console.log(
           //   data.eyeFeatures.right.height
           // ); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
