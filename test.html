@@ -1,14 +1,35 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
+          rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" 
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" 
+            crossorigin="anonymous">
+    </script>
+</head>
 
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="generic.css">
-    </head>
-    <body>
-        <video autoplay="autoplay" loop="" class="myVideo" id="myVideo">
-            <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-          </video> 
-    </body>
-</html>
+<body>
+    <nav id="webgazerNavbar" class="navbar navbar-default navbar-fixed-top" style="background-color:rgb(0, 41, 95);">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- The hamburger menu button -->
+        <button type="button" class="btn btn-light" data-toggle="collapse" data-target="#myNavbar" class="icon-bar">Menu</button>
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar">Menu</span>
+        </button> -->
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar" >
+        <ul class="nav navbar-nav">
+          <!-- Accuracy -->
+          <li id="Accuracy"><a>Not yet Calibrated</a></li>
+          <li><a onclick="Restart()" href="#">Recalibrate</a></li>
+          <li><a onclick="webgazer.applyKalmanFilter(!webgazer.params.applyKalmanFilter)" href="#">Toggle Kalman Filter</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><button class="helpBtn" data-toggle="modal" data-target="#helpModal"><a data-toggle="modal"><span class="glyphicon glyphicon-cog"></span> Help</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</body>
