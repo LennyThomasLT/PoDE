@@ -103,6 +103,7 @@ $(document).ready(function () {
                 confirm: true,
               },
             }).then((isConfirm) => {
+              window.location.href = "fixation.html";
               if (isConfirm) {
                 webgazer.pause();
                 if (csvDB == true) {
@@ -114,7 +115,7 @@ $(document).ready(function () {
                   window.open(encodeURI(dl));
                 }
                 callback(latestGazeData, elapsedTime, true);
-                window.location.href = "fixation.html";
+
                 //clear the calibration & hide the last middle button
                 ClearCanvas();
               } else {
