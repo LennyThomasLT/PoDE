@@ -11826,13 +11826,11 @@ var webgazer;
                 let u;
                 (o.onsuccess = () => {
                   u = s.transaction(ma, "readwrite");
-                  const o = u
-                    .objectStore(ma)
-                    .put({
-                      modelPath: this.modelPath,
-                      modelArtifacts: t,
-                      modelArtifactsInfo: r,
-                    });
+                  const o = u.objectStore(ma).put({
+                    modelPath: this.modelPath,
+                    modelArtifacts: t,
+                    modelArtifactsInfo: r,
+                  });
                   (o.onsuccess = () => e({ modelArtifactsInfo: r })),
                     (o.onerror = (e) => {
                       i = a.objectStore(ga);
@@ -22457,18 +22455,14 @@ var webgazer;
       }
       async setWeights(e) {
         const t = (e = await this.extractIterations(e)).length / 2;
-        (this.accumulatedGrads = e
-          .slice(0, t)
-          .map((e) => ({
+        (this.accumulatedGrads = e.slice(0, t).map((e) => ({
+          originalName: e.name,
+          variable: e.tensor.variable(false),
+        }))),
+          (this.accumulatedUpdates = e.slice(t, 2 * t).map((e) => ({
             originalName: e.name,
             variable: e.tensor.variable(false),
-          }))),
-          (this.accumulatedUpdates = e
-            .slice(t, 2 * t)
-            .map((e) => ({
-              originalName: e.name,
-              variable: e.tensor.variable(false),
-            })));
+          })));
       }
       getConfig() {
         return {
@@ -22656,18 +22650,14 @@ var webgazer;
               this.accBeta2.assign(Ou(this.beta2, this.iterations_ + 1));
           });
         const t = e.length / 2;
-        (this.accumulatedFirstMoment = e
-          .slice(0, t)
-          .map((e) => ({
+        (this.accumulatedFirstMoment = e.slice(0, t).map((e) => ({
+          originalName: e.name,
+          variable: e.tensor.variable(false),
+        }))),
+          (this.accumulatedSecondMoment = e.slice(t, 2 * t).map((e) => ({
             originalName: e.name,
             variable: e.tensor.variable(false),
-          }))),
-          (this.accumulatedSecondMoment = e
-            .slice(t, 2 * t)
-            .map((e) => ({
-              originalName: e.name,
-              variable: e.tensor.variable(false),
-            })));
+          })));
       }
       getConfig() {
         return {
@@ -23028,25 +23018,19 @@ var webgazer;
         e = await this.extractIterations(e);
         const t = this.centered ? e.length / 3 : e.length / 2,
           n = !1;
-        (this.accumulatedMeanSquares = e
-          .slice(0, t)
-          .map((e) => ({
+        (this.accumulatedMeanSquares = e.slice(0, t).map((e) => ({
+          originalName: e.name,
+          variable: e.tensor.variable(n),
+        }))),
+          (this.accumulatedMoments = e.slice(t, 2 * t).map((e) => ({
             originalName: e.name,
             variable: e.tensor.variable(n),
           }))),
-          (this.accumulatedMoments = e
-            .slice(t, 2 * t)
-            .map((e) => ({
+          this.centered &&
+            (this.accumulatedMeanGrads = e.slice(2 * t, 3 * t).map((e) => ({
               originalName: e.name,
               variable: e.tensor.variable(n),
-            }))),
-          this.centered &&
-            (this.accumulatedMeanGrads = e
-              .slice(2 * t, 3 * t)
-              .map((e) => ({
-                originalName: e.name,
-                variable: e.tensor.variable(n),
-              })));
+            })));
       }
       getConfig() {
         return {
@@ -69798,10 +69782,7 @@ var webgazer;
         "https:" !== window.location.protocol &&
           "localhost" !== window.location.hostname &&
           window.chrome &&
-          alert(
-            "WebGazer works only over https. If you are doing local development, you need to run a local server."
-          ),
-        XP.params.saveDataAcrossSessions &&
+          XP.params.saveDataAcrossSessions &&
           (async function () {
             vB = (vB = await Hz().getItem(xB)) || kB;
             var e = await Hz().getItem(bB);
