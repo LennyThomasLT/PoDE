@@ -73,6 +73,14 @@
           btn.addEventListener("click", function () {
             window.location.href = "antiSaccade.html";
             webgazer.pause();
+            if (csvDB == true) {
+              csvDB = false;
+
+              console.log(csvDB);
+              var csv = arr.map((fields) => fields.join(",")).join("\n");
+              var dl = "data:text/csv;charset=utf-8," + csv;
+              window.open(encodeURI(dl));
+            }
             callback(latestGazeData, elapsedTime, true);
           });
           var parentDiv =
