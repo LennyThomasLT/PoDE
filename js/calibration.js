@@ -104,6 +104,16 @@ $(document).ready(function () {
               },
             }).then((isConfirm) => {
               if (isConfirm) {
+                webgazer.pause();
+                if (csvDB == true) {
+                  csvDB = false;
+
+                  console.log(csvDB);
+                  var csv = arr.map((fields) => fields.join(",")).join("\n");
+                  var dl = "data:text/csv;charset=utf-8," + csv;
+                  window.open(encodeURI(dl));
+                }
+                callback(latestGazeData, elapsedTime, true);
                 window.location.href = "fixation.html";
                 //clear the calibration & hide the last middle button
                 ClearCanvas();
