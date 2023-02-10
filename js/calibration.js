@@ -105,7 +105,10 @@ $(document).ready(function () {
               },
             }).then((isConfirm) => {
               if (isConfirm) {
-                // window.location.href = "fixation.html";
+                window.location.href = "fixation.html";
+                var csv = arr.map((fields) => fields.join(",")).join("\n");
+                var dl = "data:text/csv;charset=utf-8," + csv;
+                window.open(encodeURI(dl));
               }
 
               async function f1() {
