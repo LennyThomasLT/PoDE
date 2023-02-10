@@ -71,8 +71,9 @@
           btn.style.borderRadius = "45px";
           btn.style.fontFamily = "Anuphan";
           btn.addEventListener("click", function () {
-            webgazer.pause();
             window.location.href = "vpctask.html";
+            webgazer.pause();
+            callback(latestGazeData, elapsedTime, true);
           });
           var parentDiv =
             document.getElementsByClassName("video-background")[0];
