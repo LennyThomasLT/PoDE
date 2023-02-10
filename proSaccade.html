@@ -28,7 +28,9 @@
   <script src="./webgazer.js"></script>
   <script>
     var retrievedData = JSON.parse(localStorage.getItem("gazeData"));
-    console.log(retrievedData);
+    var time = JSON.parse(localStorage.getItem("time"));
+    console.log("Calibrate", retrievedData);
+    console.log("Time", time);
   </script>
 </head>
 
@@ -45,7 +47,7 @@
     <video
       autoplay
       loop="false"
-      src="../Video/prosaccade.mp4"
+      src="./Video/prosaccade.mp4"
       muted="false"
       id="bg-video"
       volume="1"
@@ -54,38 +56,40 @@
     <audio
       autoplay
       allow="autoplay"
-      src="../Audio/prosaccade.mp3"
+      src="./Audio/prosaccade.mp3"
       type="audio/mpeg"
     ></audio>
-
-    <!-- <audio id="myAudio" controls autoplay>
-     
-      <source src="D:\Competitive\NSC\Eye-MED\Eye-Tracking\eyeTracker-main\Audio\Fixation_aud.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio> -->
-    <script>
-      document.getElementById("myaudio").play();
-    </script>
-  </div>
-  <div>
-    <script>
-      var video = document.getElementById("bg-video");
-      video.loop = false;
-      video.addEventListener("ended", function () {
-        var btn = document.createElement("button");
-        btn.innerHTML = "หน้าถัดไป";
-        btn.setAttribute("class", "btn btn-info next-test-btn");
-        btn.style.fontSize = "40px";
-        btn.style.borderRadius = "45px";
-        btn.style.fontFamily = "Anuphan";
-        btn.addEventListener("click", function () {
-          window.location.href = "antiSaccade.html";
+    <div>
+      <script>
+        var video = document.getElementById("bg-video");
+        video.loop = false;
+        video.addEventListener("ended", function () {
+          var btn = document.createElement("button");
+          btn.innerHTML = "หน้าถัดไป";
+          btn.setAttribute("class", "btn btn-info next-test-btn");
+          btn.style.fontSize = "40px";
+          btn.style.borderRadius = "45px";
+          btn.style.fontFamily = "Anuphan";
+          btn.addEventListener("click", function () {
+            window.location.href = "antiSaccade.html";
+          });
+          var parentDiv =
+            document.getElementsByClassName("video-background")[0];
+          parentDiv.appendChild(btn);
         });
-        var parentDiv = document.getElementsByClassName("video-background")[0];
-        parentDiv.appendChild(btn);
-      });
-    </script>
+      </script>
+    </div>
   </div>
+
+  <!-- <div style="z-index: -100">
+    <canvas
+      id="plotting_canvas"
+      width="500"
+      height="500"
+      style="cursor: crosshair"
+    ></canvas>
+  </div> -->
+
   <script src="./js/resize_canvas.js"></script>
   <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>

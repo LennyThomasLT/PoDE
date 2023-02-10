@@ -43,12 +43,12 @@ window.onload = async function () {
         if (passarg == null) {
           localStorage.setItem("gazeData", JSON.stringify(data));
           localStorage.setItem("time", JSON.stringify(clock));
-          // console.log(
-          //   data.eyeFeatures.right.height
-          // ); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
-          // console.log(
-          //   data.eyeFeatures.left.height
-          // ); /* elapsed time in milliseconds since webgazer.begin() was called */
+          console.log(
+            data.eyeFeatures.right.height
+          ); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
+          console.log(
+            data.eyeFeatures.left.height
+          ); /* elapsed time in milliseconds since webgazer.begin() was called */
         }
         arr.push([
           clock,
