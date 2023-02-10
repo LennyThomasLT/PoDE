@@ -37,6 +37,7 @@ function helpModalShow() {
  * This function listens for button clicks on the html page
  * checks that all buttons have been clicked 5 times each, and then goes on to measuring the precision
  */
+
 $(document).ready(function () {
   ClearCanvas();
   helpModalShow();
@@ -103,19 +104,28 @@ $(document).ready(function () {
                 confirm: true,
               },
             }).then((isConfirm) => {
-              window.location.href = "fixation.html";
               if (isConfirm) {
-                webgazer.pause();
-                if (csvDB == true) {
-                  csvDB = false;
+                // window.location.href = "fixation.html";
+              }
 
-                  console.log(csvDB);
-                  var csv = arr.map((fields) => fields.join(",")).join("\n");
-                  var dl = "data:text/csv;charset=utf-8," + csv;
-                  window.open(encodeURI(dl));
-                }
-                callback(latestGazeData, elapsedTime, true);
+              async function f1() {
+                latestGazeData = await latestGazeData;
+              }
 
+              async function callback() {
+                latestGazeData = await latestGazeData;
+                return callback(latestGazeData, elapsedTime, true);
+              }
+
+              if (csvDB === true) {
+                csvDB = false;
+
+                var csv = arr.map((fields) => fields.join(",")).join("\n");
+                var dl = "data:text/csv;charset=utf-8," + csv;
+                window.open(encodeURI(dl));
+              }
+
+              if (isConfirm) {
                 //clear the calibration & hide the last middle button
                 ClearCanvas();
               } else {
