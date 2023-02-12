@@ -17,7 +17,7 @@ function PopUpInstruction() {
   ClearCanvas();
   swal({
     title: "Calibration",
-    text: "Please click on each of the 9 points on the screen. You must click on each point 5 times till it goes yellow. This will calibrate your eye movements.",
+    text: "คลิกจุดที่ปรากฏบริเวณหน้าจอทั้ง 9 จุด \n คลิกทั้งหมด 5 ครั้งจนกระทั่งจุดเปลี่ยนเป็นสีเขียวเพื่อเป็นการปรับความแม่นยำของดวงตา",
     buttons: {
       cancel: false,
       confirm: true,
@@ -79,7 +79,7 @@ $(document).ready(function () {
       // notification for the measurement process
       swal({
         title: "Calculating measurement",
-        text: "Please don't move your mouse & stare at the middle dot for the next 5 seconds. This will allow us to calculate the accuracy of our predictions.",
+        text: "โปรดอย่าขยับเมาส์ & จ้องที่จุดสีดขียวตรงกลาง 5 วินาที เพื่อคำนวณหาความแม่นยำในการติดตามการเคลื่อนที่ของตา",
         closeOnEsc: false,
         allowOutsideClick: false,
         closeModal: true,
